@@ -1,0 +1,348 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+}
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+
+.sidebar {
+    width: 230px;
+    background: #172033;
+    color: white;
+    padding: 25px 20px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.sidebar h2 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #aeb8c8;
+    font-size: 14px;
+    margin-bottom: 35px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sidebar button {
+    background: transparent;
+    border: none;
+    color: white;
+    text-align: left;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.sidebar button:hover {
+    background: #293650;
+}
+
+/* Main content */
+
+.main-content {
+    margin-left: 230px;
+    padding: 35px;
+    width: calc(100% - 230px);
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+.section h1 {
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+/* Dashboard cards */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+}
+
+.card {
+    background: white;
+    padding: 22px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.card p {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* Tables */
+
+.table-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background: #f7f8fa;
+    color: #555;
+}
+
+/* Warehouse map */
+
+.warehouse-map {
+    display: grid;
+    grid-template-columns: repeat(10, 55px);
+    grid-template-rows: repeat(6, 55px);
+    gap: 2px;
+    background: #d8dde5;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 8px;
+}
+
+.map-cell {
+    background: white;
+    border: 1px solid #e1e4e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    position: relative;
+}
+
+.map-cell.station {
+    font-size: 20px;
+}
+
+.map-cell.robot {
+    font-size: 22px;
+}
+
+.legend {
+    margin-top: 20px;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.legend span {
+    background: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* Task button */
+
+.assign-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.assign-btn:hover {
+    background: #1d4ed8;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .sidebar {
+        width: 180px;
+    }
+
+    .main-content {
+        margin-left: 180px;
+        width: calc(100% - 180px);
+        padding: 20px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* Status badges */
+
+.status-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status-available {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status-busy {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.status-charging {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status-pending {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.status-assigned {
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+.status-completed {
+    background: #dcfce7;
+    color: #166534;
+}
+
+/* WCS system status */
+
+.system-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 10px 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    background: #22c55e;
+    border-radius: 50%;
+}
+
+/* Warehouse Map Improvements */
+
+.warehouse-map {
+    border: 2px solid #cbd5e1;
+    background: #e2e8f0;
+    padding: 12px;
+}
+
+.map-cell {
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.map-cell:hover {
+    background: #f1f5f9;
+}
+
+.map-cell.station {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.map-cell.robot {
+    font-size: 24px;
+    font-weight: bold;
+    background: #dbeafe;
+    border: 2px solid #2563eb;
+}
+
+.legend {
+    margin-top: 20px;
+}
+
+.legend span {
+    font-size: 13px;
+}
+
+/* WCS Rules Card */
+
+.rules-card {
+    background: white;
+    margin-top: 25px;
+    padding: 22px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.rules-card h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.rules-card ul {
+    padding-left: 20px;
+}
+
+.rules-card li {
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 14px;
+}

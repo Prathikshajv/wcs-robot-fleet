@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WCS Robot Fleet Interface</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <h2>XP Robotics</h2>
+            <p class="subtitle">WCS Control Center</p>
+
+            <nav>
+                <button onclick="showSection('dashboard')">
+                    Dashboard
+                </button>
+
+                <button onclick="showSection('map')">
+                    Warehouse Map
+                </button>
+
+                <button onclick="showSection('robots')">
+                    Robot Fleet
+                </button>
+
+                <button onclick="showSection('tasks')">
+                    Task Queue
+                </button>
+            </nav>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Dashboard -->
+            <section id="dashboard" class="section active">
+
+                <h1>WCS Dashboard</h1>
+
+                <div class="system-status">
+    <span class="status-dot"></span>
+    <span>WCS System Online</span>
+</div>
+
+                <div class="cards">
+
+                    <div class="card">
+                        <h3>Total Robots</h3>
+                        <p id="totalRobots">0</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Available</h3>
+                        <p id="availableRobots">0</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Busy</h3>
+                        <p id="busyRobots">0</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Pending Tasks</h3>
+                        <p id="pendingTasks">0</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Completed Tasks</h3>
+                        <p id="completedTasks">0</p>
+                    </div>
+
+                </div>
+                <div class="rules-card">
+
+    <h3>WCS Rules</h3>
+
+    <ul>
+        <li>Only available robots can receive tasks.</li>
+        <li>Robot battery must be at least 20%.</li>
+        <li>Busy robots cannot receive another task.</li>
+        <li>Charging robots are not assigned tasks.</li>
+    </ul>
+
+</div>
+
+            </section>
+
+
+            <!-- Warehouse Map -->
+            <section id="map" class="section">
+
+                <h1>Warehouse Map</h1>
+
+                <div id="warehouseMap" class="warehouse-map">
+                </div>
+
+                <div class="legend">
+
+                    <span>
+                        🟢 Pickup
+                    </span>
+
+                    <span>
+                        🔵 Drop-off
+                    </span>
+
+                    <span>
+                        🟡 Charging
+                    </span>
+
+                    <span>
+                        🤖 Robot
+                    </span>
+
+                </div>
+
+            </section>
+
+
+            <!-- Robot Fleet -->
+            <section id="robots" class="section">
+
+                <h1>Robot Fleet</h1>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Robot</th>
+                                <th>Status</th>
+                                <th>Battery</th>
+                                <th>Position</th>
+                                <th>Current Task</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="robotTableBody">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- Task Queue -->
+            <section id="tasks" class="section">
+
+                <h1>Task Queue</h1>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Task</th>
+<th>Pickup</th>
+<th>Drop-off</th>
+<th>Status</th>
+<th>Stage</th>
+<th>Robot</th>
+<th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="taskTableBody">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
