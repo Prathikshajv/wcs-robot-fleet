@@ -314,22 +314,6 @@ Possible improvements include:
 * Integration with a WMS
 * Authentication and user roles
 
-## Demo
-
-Demo video:
-
-Coming soon.
-
-The demo will show:
-
-1. WCS dashboard
-2. Warehouse map
-3. Robot fleet
-4. Task assignment
-5. Multiple robots receiving tasks
-6. Live robot movement
-7. Task completion
-
 ## Author
 
 Prathiksha J V
