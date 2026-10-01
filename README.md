@@ -1,5 +1,9 @@
 # WCS Robot Fleet Interface
 
+## Demo Video
+
+[Watch the WCS Robot Fleet Interface Demo](./wcs-demo-video.mp4)
+
 A basic web-based Warehouse Control System (WCS) simulation for managing an AMR robot fleet and warehouse tasks.
 
 ## Project Overview
